@@ -1,3 +1,4 @@
+%{!?_licensedir:%global license %%doc}
 %global pypi_name automaton
 
 Name:           python-%{pypi_name}
@@ -33,7 +34,8 @@ rm -rf html/.{doctrees,buildinfo}
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 %files
-%doc html README.rst LICENSE
+%doc html README.rst
+%license LICENSE
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/ 
 %{python2_sitelib}/*.egg-info
