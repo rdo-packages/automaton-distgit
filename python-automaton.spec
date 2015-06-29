@@ -6,7 +6,7 @@ Release:        XXX
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
-URL:            http://www.openstack.org/
+URL:            https://wiki.openstack.org/wiki/Oslo#automaton
 Source0:        https://pypi.python.org/packages/source/a/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
  
