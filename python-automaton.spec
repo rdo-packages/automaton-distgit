@@ -22,13 +22,13 @@ Friendly state machines for python.
 %prep
 %setup -q -n %{pypi_name}-%{upstream_version}
 
+%build
+%{__python2} setup.py build
+
 # generate html docs 
 sphinx-build doc/source html
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
-
-%build
-%{__python2} setup.py build
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
