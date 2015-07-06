@@ -42,7 +42,6 @@ rm -rf html/.{doctrees,buildinfo}
 %doc html README.rst
 %license LICENSE
 %{python2_sitelib}/%{pypi_name}
-%{python2_sitelib}/ 
 %{python2_sitelib}/*.egg-info
 
 %changelog
