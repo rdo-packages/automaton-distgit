@@ -16,6 +16,11 @@ BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
 
+Requires: python-pbr >= 0.11
+Requires: python-six >= 1.9.0
+Requires: python-debtcollector >= 0.3.0
+Requires: python-prettytable
+
 %description
 Friendly state machines for python.
 
