@@ -4,7 +4,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-%{pypi_name}
-Version:        0.4.0
+Version:        0.6.0
 Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
@@ -47,5 +47,8 @@ rm -rf html/.{doctrees,buildinfo}
 %{python2_sitelib}/*.egg-info
 
 %changelog
+* Tue Aug 18 2015 Alan Pevec <alan.pevec@redhat.com> 0.6.0-1
+- Update to upstream 0.6.0
+
 * Mon Jul 06 2015 Alan Pevec <alan.pevec@redhat.com> 0.4.0-1
 - Update to upstream 0.4.0
