@@ -5,7 +5,7 @@
 %global pypi_name automaton
 
 Name:           python-%{pypi_name}
-Version:        1.0.0
+Version:        1.1.0
 Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
@@ -134,6 +134,9 @@ rm -rf .testrepository
 %endif
 
 %changelog
+* Tue Dec 22 2015 jpena <jpena@redhat.com> - 1.1.0-1
+- Updated to upstream release 1.1.0
+
 * Tue Nov 24 2015 jpena <jpena@redhat.com> - 1.0.0-1
 - Updated to upstream release 1.0.0
 
