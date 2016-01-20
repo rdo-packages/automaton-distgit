@@ -1,3 +1,5 @@
-# UUID                                  	Group Name
-#
-f22882f9dc975df20e29ede5c29433f5828cc82d	automaton-distgit-ptl
+# UUID          Group Name
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
+ce155454c54c5c6947a408aaa5d23e8f4feb2060       	automaton-distgit-core
+f22882f9dc975df20e29ede5c29433f5828cc82d        	automaton-distgit-ptl
+global:Registered-Users		Registered Users
