@@ -6,7 +6,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
@@ -134,6 +134,9 @@ rm -rf .testrepository
 %endif
 
 %changelog
+* Wed Feb 24 2016 fabien - 1.2.0-2
+- rebuilt
+
 * Wed Feb 10 2016 jpena <jpena@redhat.com> - 1.2.0-1
 - Updated to upstream release 1.2.0
 
