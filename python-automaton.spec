@@ -1,9 +1,11 @@
 %{!?_licensedir:%global license %%doc}
 %global pypi_name automaton
 
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        1.2.0
+Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
@@ -45,3 +47,6 @@ rm -rf html/.{doctrees,buildinfo}
 %{python2_sitelib}/*.egg-info
 
 %changelog
+* Wed Mar 23 2016 Haikel Guemar <hguemar@fedoraproject.org> 1.2.0-
+- Update to 1.2.0
+
