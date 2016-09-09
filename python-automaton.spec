@@ -1,5 +1,9 @@
-%{!?_licensedir:%global license %%doc}
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name automaton
+
+%if 0%{?fedora}
+%global with_python3 1
+%endif
 
 Name:           python-%{pypi_name}
 Version:        XXX
@@ -10,25 +14,52 @@ License:        ASL 2.0
 URL:            https://wiki.openstack.org/wiki/Oslo#automaton
 Source0:        https://pypi.io/packages/source/a/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
- 
+
+%description
+Friendly state machines for python.
+
+%package -n python2-%{pypi_name}
+Summary:        Friendly state machines for python
+%{?python_provide:%python_provide python2-%{pypi_name}}
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
 
-Requires: python-pbr >= 0.11
+Requires: python-pbr >= 1.6
 Requires: python-six >= 1.9.0
-Requires: python-debtcollector >= 0.3.0
+Requires: python-debtcollector >= 1.2.0
 Requires: python-prettytable
 
-%description
+%description -n python2-%{pypi_name}
 Friendly state machines for python.
+
+%if 0%{?with_python3}
+%package -n python3-%{pypi_name}
+Summary:        Friendly state machines for python
+%{?python_provide:%python_provide python3-%{pypi_name}}
+BuildRequires:  python3-devel
+BuildRequires:  python3-pbr
+BuildRequires:  python3-sphinx
+BuildRequires:  python3-oslo-sphinx
+
+Requires: python3-pbr >= 1.6
+Requires: python3-six >= 1.9.0
+Requires: python3-debtcollector >= 1.2.0
+Requires: python3-prettytable
+
+%description -n python3-%{pypi_name}
+Friendly state machines for python.
+%endif
 
 %prep
 %setup -q -n %{pypi_name}-%{upstream_version}
 
 %build
-%{__python2} setup.py build
+%if 0%{?with_python3}
+%py3_build
+%endif
+%py2_build
 
 # generate html docs 
 sphinx-build doc/source html
@@ -36,12 +67,23 @@ sphinx-build doc/source html
 rm -rf html/.{doctrees,buildinfo}
 
 %install
-%{__python2} setup.py install --skip-build --root %{buildroot}
+%if 0%{?with_python3}
+%py3_install
+%endif
+%py2_install
 
-%files
+%files -n python2-%{pypi_name}
 %doc html README.rst
 %license LICENSE
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/*.egg-info
+
+%if 0%{?with_python3}
+%files -n python3-%{pypi_name}
+%doc html README.rst
+%license LICENSE
+%{python3_sitelib}/%{pypi_name}
+%{python3_sitelib}/*.egg-info
+%endif
 
 %changelog
