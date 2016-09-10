@@ -7,7 +7,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
@@ -97,6 +97,9 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Sat Sep 10 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 1.4.0-2
+- Add doc subpackage
+
 * Fri Sep 09 2016 Haikel Guemar <hguemar@fedoraproject.org> 1.4.0-1
 - Update to 1.4.0
 
