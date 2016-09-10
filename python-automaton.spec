@@ -52,6 +52,12 @@ Requires: python3-prettytable
 Friendly state machines for python.
 %endif
 
+%package -n python-%{pypi_name}-doc
+Summary:        Friendly state machines for python - documentation
+
+%description -n python-%{pypi_name}-doc
+Friendly state machines for python (documentation)
+
 %prep
 %setup -q -n %{pypi_name}-%{upstream_version}
 
@@ -85,6 +91,10 @@ rm -rf html/.{doctrees,buildinfo}
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/*.egg-info
 %endif
+
+%files -n python-%{pypi_name}-doc
+%doc html
+%license LICENSE
 
 %changelog
 * Fri Sep 09 2016 Haikel Guemar <hguemar@fedoraproject.org> 1.4.0-1
