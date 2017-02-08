@@ -6,8 +6,8 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        1.7.0
+Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
@@ -97,3 +97,6 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Wed Feb 08 2017 Alfredo Moralejo <amoralej@redhat.com> 1.7.0-1
+- Update to 1.7.0
+
