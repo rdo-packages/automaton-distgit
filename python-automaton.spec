@@ -26,6 +26,7 @@ BuildRequires:  python-pbr
 BuildRequires:  git
 BuildRequires:  python-sphinx
 BuildRequires:  python-openstackdocstheme
+BuildRequires:  python-oslo-sphinx
 BuildRequires:  python-debtcollector
 BuildRequires:  python-prettytable
 
