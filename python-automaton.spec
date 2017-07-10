@@ -23,8 +23,11 @@ Summary:        Friendly state machines for python
 %{?python_provide:%python_provide python2-%{pypi_name}}
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
+BuildRequires:  git
 BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-openstackdocstheme
+BuildRequires:  python-debtcollector
+BuildRequires:  python-prettytable
 
 Requires: python-pbr >= 1.6
 Requires: python-six >= 1.9.0
@@ -40,8 +43,6 @@ Summary:        Friendly state machines for python
 %{?python_provide:%python_provide python3-%{pypi_name}}
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
-BuildRequires:  python3-sphinx
-BuildRequires:  python3-oslo-sphinx
 
 Requires: python3-pbr >= 1.6
 Requires: python3-six >= 1.9.0
@@ -59,7 +60,7 @@ Summary:        Friendly state machines for python - documentation
 Friendly state machines for python (documentation)
 
 %prep
-%setup -q -n %{pypi_name}-%{upstream_version}
+%autosetup -n %{pypi_name}-%{upstream_version} -S git
 
 %build
 %if 0%{?with_python3}
@@ -68,9 +69,9 @@ Friendly state machines for python (documentation)
 %py2_build
 
 # generate html docs 
-sphinx-build doc/source html
+%{__python2} setup.py build_sphinx -b html
 # remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
+rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %install
 %if 0%{?with_python3}
@@ -79,21 +80,21 @@ rm -rf html/.{doctrees,buildinfo}
 %py2_install
 
 %files -n python2-%{pypi_name}
-%doc html README.rst
+%doc README.rst
 %license LICENSE
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/*.egg-info
 
 %if 0%{?with_python3}
 %files -n python3-%{pypi_name}
-%doc html README.rst
+%doc README.rst
 %license LICENSE
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/*.egg-info
 %endif
 
 %files -n python-%{pypi_name}-doc
-%doc html
+%doc doc/build/html
 %license LICENSE
 
 %changelog
