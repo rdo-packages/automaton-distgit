@@ -6,7 +6,7 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        1.7.0
+Version:        1.7.1
 Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
@@ -97,6 +97,9 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Tue Jul 11 2017 rdo-trunk <javier.pena@redhat.com> 1.7.1-1
+- Update to 1.7.1
+
 * Wed Feb 08 2017 Alfredo Moralejo <amoralej@redhat.com> 1.7.0-1
 - Update to 1.7.0
 
