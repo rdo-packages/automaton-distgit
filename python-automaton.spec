@@ -24,6 +24,7 @@ Summary:        Friendly state machines for python
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 BuildRequires:  git
+BuildRequires:  graphviz
 BuildRequires:  python-sphinx
 BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-oslo-sphinx
