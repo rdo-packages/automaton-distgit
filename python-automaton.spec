@@ -6,8 +6,8 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        1.12.0
+Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
@@ -24,6 +24,7 @@ Summary:        Friendly state machines for python
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 BuildRequires:  git
+BuildRequires:  graphviz
 BuildRequires:  python-sphinx
 BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-oslo-sphinx
@@ -99,3 +100,6 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Fri Aug 11 2017 Alfredo Moralejo <amoralej@redhat.com> 1.12.0-1
+- Update to 1.12.0
+
