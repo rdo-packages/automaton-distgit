@@ -22,19 +22,17 @@ Friendly state machines for python.
 Summary:        Friendly state machines for python
 %{?python_provide:%python_provide python2-%{pypi_name}}
 BuildRequires:  python2-devel
-BuildRequires:  python-pbr
+BuildRequires:  python2-pbr
 BuildRequires:  git
 BuildRequires:  graphviz
-BuildRequires:  python-sphinx
-BuildRequires:  python-openstackdocstheme
-BuildRequires:  python-oslo-sphinx
-BuildRequires:  python-debtcollector
-BuildRequires:  python-prettytable
+BuildRequires:  python2-sphinx
+BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-oslo-sphinx
+BuildRequires:  python2-prettytable
 
-Requires: python-pbr >= 2.0.0
-Requires: python-six >= 1.9.0
-Requires: python-debtcollector >= 1.2.0
-Requires: python-prettytable
+Requires: python2-pbr >= 2.0.0
+Requires: python2-six >= 1.10.0
+Requires: python2-prettytable
 
 %description -n python2-%{pypi_name}
 Friendly state machines for python.
@@ -47,8 +45,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 
 Requires: python3-pbr >= 2.0.0
-Requires: python3-six >= 1.9.0
-Requires: python3-debtcollector >= 1.2.0
+Requires: python3-six >= 1.10.0
 Requires: python3-prettytable
 
 %description -n python3-%{pypi_name}
