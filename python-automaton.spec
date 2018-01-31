@@ -28,12 +28,10 @@ BuildRequires:  graphviz
 BuildRequires:  python-sphinx
 BuildRequires:  python-openstackdocstheme
 BuildRequires:  python-oslo-sphinx
-BuildRequires:  python-debtcollector
 BuildRequires:  python-prettytable
 
 Requires: python-pbr >= 2.0.0
-Requires: python-six >= 1.9.0
-Requires: python-debtcollector >= 1.2.0
+Requires: python-six >= 1.10.0
 Requires: python-prettytable
 
 %description -n python2-%{pypi_name}
@@ -47,8 +45,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 
 Requires: python3-pbr >= 2.0.0
-Requires: python3-six >= 1.9.0
-Requires: python3-debtcollector >= 1.2.0
+Requires: python3-six >= 1.10.0
 Requires: python3-prettytable
 
 %description -n python3-%{pypi_name}
