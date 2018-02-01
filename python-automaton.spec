@@ -1,6 +1,6 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name automaton
-
+ 
 %if 0%{?fedora}
 %global with_python3 1
 %endif
