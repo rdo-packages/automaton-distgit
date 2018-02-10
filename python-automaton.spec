@@ -6,8 +6,8 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        1.14.0
+Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
@@ -97,3 +97,6 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Sat Feb 10 2018 RDO <dev@lists.rdoproject.org> 1.14.0-1
+- Update to 1.14.0
+
