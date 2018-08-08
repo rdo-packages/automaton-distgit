@@ -27,7 +27,6 @@ BuildRequires:  git
 BuildRequires:  graphviz
 BuildRequires:  python2-sphinx
 BuildRequires:  python2-openstackdocstheme
-BuildRequires:  python2-oslo-sphinx
 BuildRequires:  python2-prettytable
 
 Requires: python2-pbr >= 2.0.0
