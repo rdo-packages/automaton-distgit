@@ -12,6 +12,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name automaton
 
+%global with_doc 1
+
 Name:           python-%{pypi_name}
 Version:        XXX
 Release:        XXX
@@ -31,9 +33,6 @@ Summary:        Friendly state machines for python
 BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-pbr
 BuildRequires:  git
-BuildRequires:  graphviz
-BuildRequires:  python%{pyver}-sphinx
-BuildRequires:  python%{pyver}-openstackdocstheme
 BuildRequires:  python%{pyver}-prettytable
 
 Requires: python%{pyver}-pbr >= 2.0.0
@@ -43,11 +42,16 @@ Requires: python%{pyver}-prettytable
 %description -n python%{pyver}-%{pypi_name}
 Friendly state machines for python.
 
+%if 0%{?with_doc}
 %package -n python-%{pypi_name}-doc
 Summary:        Friendly state machines for python - documentation
+BuildRequires:  graphviz
+BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-openstackdocstheme
 
 %description -n python-%{pypi_name}-doc
 Friendly state machines for python (documentation)
+%endif
 
 %prep
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
@@ -55,10 +59,12 @@ Friendly state machines for python (documentation)
 %build
 %{pyver_build}
 
+%if 0%{?with_doc}
 # generate html docs 
 %{pyver_bin} setup.py build_sphinx -b html
 # remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
+%endif
 
 %install
 %{pyver_install}
@@ -69,8 +75,10 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %{pyver_sitelib}/%{pypi_name}
 %{pyver_sitelib}/*.egg-info
 
+%if 0%{?with_doc}
 %files -n python-%{pypi_name}-doc
 %doc doc/build/html
 %license LICENSE
+%endif
 
 %changelog
