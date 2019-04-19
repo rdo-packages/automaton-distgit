@@ -6,7 +6,7 @@
 %endif
 
 Name:           python-%{pypi_name}
-Version:        1.12.1
+Version:        1.12.2
 Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
@@ -100,6 +100,9 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Fri Apr 19 2019 RDO <dev@lists.rdoproject.org> 1.12.2-1
+- Update to 1.12.2
+
 * Thu Sep 28 2017 rdo-trunk <javier.pena@redhat.com> 1.12.1-1
 - Update to 1.12.1
 
