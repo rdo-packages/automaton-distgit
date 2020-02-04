@@ -82,3 +82,4 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/automaton/commit/?id=a1ed7110372e9aa69624396257917e3ffce3d73a
