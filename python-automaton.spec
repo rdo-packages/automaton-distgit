@@ -21,7 +21,7 @@ Summary:        Friendly state machines for python
 %{?python_provide:%python_provide python3-%{pypi_name}}
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  python3-prettytable
 
 Requires: python3-pbr >= 2.0.0
