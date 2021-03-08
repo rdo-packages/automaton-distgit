@@ -25,7 +25,6 @@ BuildRequires:  git-core
 BuildRequires:  python3-prettytable
 
 Requires: python3-pbr >= 2.0.0
-Requires: python3-six >= 1.10.0
 Requires: python3-prettytable
 
 %description -n python3-%{pypi_name}
