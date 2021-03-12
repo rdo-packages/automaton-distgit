@@ -4,8 +4,8 @@
 %global with_doc 1
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        2.3.0
+Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
@@ -70,3 +70,6 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %changelog
+* Fri Mar 12 2021 RDO <dev@lists.rdoproject.org> 2.3.0-1
+- Update to 2.3.0
+
