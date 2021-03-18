@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1eb9d081_ccfb1666",
+        "filename": "python-automaton.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2021-03-18T04:59:56Z",
+      "side": 1,
+      "message": "should change source0 too, likely due to this only it was missed initially.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 93
+      },
+      "revId": "2b3419424ac3719bb97032e623440ebaec99e4ef",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    }
+  ]
+}
