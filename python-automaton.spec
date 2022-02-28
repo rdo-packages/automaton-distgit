@@ -4,7 +4,7 @@
 %global with_doc 1
 
 Name:           python-%{pypi_name}
-Version:        2.3.0
+Version:        2.3.1
 Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
@@ -70,6 +70,9 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %changelog
+* Mon Feb 28 2022 RDO <dev@lists.rdoproject.org> 2.3.1-1
+- Update to 2.3.1
+
 * Fri Mar 12 2021 RDO <dev@lists.rdoproject.org> 2.3.0-1
 - Update to 2.3.0
 
