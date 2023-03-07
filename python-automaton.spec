@@ -1,13 +1,13 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
+%global sources_gpg_sign 0xa7475c5f2122fec3f90343223fe3bf5aad1080e4
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global pypi_name automaton
 
 %global with_doc 1
 
 Name:           python-%{pypi_name}
-Version:        XXX
-Release:        XXX
+Version:        3.1.0
+Release:        1%{?dist}
 Summary:        Friendly state machines for python
 
 License:        ASL 2.0
@@ -88,3 +88,6 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %changelog
+* Tue Mar 07 2023 RDO <dev@lists.rdoproject.org> 3.1.0-1
+- Update to 3.1.0
+
