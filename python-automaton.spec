@@ -1,6 +1,8 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
 %global pypi_name automaton
 
 %global with_doc 1
@@ -10,7 +12,7 @@ Version:        XXX
 Release:        XXX
 Summary:        Friendly state machines for python
 
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            https://wiki.openstack.org/wiki/Oslo#automaton
 Source0:        http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 # Required for tarball sources verification
@@ -32,14 +34,9 @@ Friendly state machines for python.
 
 %package -n python3-%{pypi_name}
 Summary:        Friendly state machines for python
-%{?python_provide:%python_provide python3-%{pypi_name}}
 BuildRequires:  python3-devel
-BuildRequires:  python3-pbr
+BuildRequires:  pyproject-rpm-macros
 BuildRequires:  git-core
-BuildRequires:  python3-prettytable
-
-Requires: python3-pbr >= 2.0.0
-Requires: python3-prettytable
 
 %description -n python3-%{pypi_name}
 Friendly state machines for python.
@@ -48,8 +45,6 @@ Friendly state machines for python.
 %package -n python-%{pypi_name}-doc
 Summary:        Friendly state machines for python - documentation
 BuildRequires:  graphviz
-BuildRequires:  python3-sphinx
-BuildRequires:  python3-openstackdocstheme
 
 %description -n python-%{pypi_name}-doc
 Friendly state machines for python (documentation)
@@ -62,24 +57,47 @@ Friendly state machines for python (documentation)
 %endif
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
 
+sed -i /.*-c{env:TOX_CONSTRAINTS_FILE.*/d tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs};do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
+
 %build
-%{py3_build}
+%pyproject_wheel
 
 %if 0%{?with_doc}
 # generate html docs
-sphinx-build-3 -b html doc/source doc/build/html
+%tox -e docs
 # remove the sphinx-build-3 leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %install
-%{py3_install}
+%pyproject_install
+
+%check
+%tox -e %{default_toxenv}
 
 %files -n python3-%{pypi_name}
 %doc README.rst
 %license LICENSE
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/*.egg-info
+%{python3_sitelib}/*.dist-info
 
 %if 0%{?with_doc}
 %files -n python-%{pypi_name}-doc
