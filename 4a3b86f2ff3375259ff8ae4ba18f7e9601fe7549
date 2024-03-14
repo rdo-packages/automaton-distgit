@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68f0f728_bcc50aaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2024-03-14T12:36:00Z",
+      "side": 1,
+      "message": "not merge until we define how to manage packages which didn\u0027t release since last version",
+      "revId": "4a3b86f2ff3375259ff8ae4ba18f7e9601fe7549",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
